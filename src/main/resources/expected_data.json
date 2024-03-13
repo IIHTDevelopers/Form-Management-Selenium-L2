@@ -1,0 +1,20 @@
+{
+	
+	"userdetails":{
+		"firstName":"surya",
+		"lastName":"Nayak",
+		"adds":"Cuttack, Odhisha -754006",
+		"emaiI":"nayaksurya50@gmail.com",
+		"phoneNo":"9124590608",
+		"gender":"Male",
+		"language":"English",
+		"skills":"Java",
+		"country":"India",
+		"year":"1996",
+		"month":"June",
+		"day":"25",
+		"password":"Surya@123456",
+		"confirmPassword":"Surya@123456"
+}
+
+}
