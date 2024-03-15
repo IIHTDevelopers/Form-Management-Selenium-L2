@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.example</groupId>
-	<artifactId>Facebook_Automation_Working_Code</artifactId>
+	<artifactId>Form_Management_Automation</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<properties>
@@ -13,11 +13,11 @@
 		<maven.compiler.target>3.11.0</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
-			<!-- Define Java version -->
+		<!-- Define Java version -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-	
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
@@ -25,6 +25,7 @@
 			<artifactId>testng</artifactId>
 			<version>7.8.0</version>
 		</dependency>
+		
 		<!--
 		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
@@ -118,7 +119,7 @@
 		</dependency>
 
 	</dependencies>
-<build>
+	<build>
         <plugins>
             <!-- Maven compiler plugin configuration -->
             <plugin>
@@ -132,4 +133,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
