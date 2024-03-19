@@ -119,7 +119,7 @@ public class FormManagement_TestCases extends AppTestBase {
 		RegisterPageInstance = new FormManagement_Pages(driver);
 		String expectedDataFilePath = testDataFilePath+"expected_data.json";
 		Map<String, String> expectedData = new FileOperations().readJson(expectedDataFilePath, "PathOfTheImage");
-		Assert.assertTrue(RegisterPageInstance.clickOnChooseFilUploadButtonAndUploadImage(expectedData.get("imagePath")), "file upload failed, please check manually");	
+		Assert.assertTrue(RegisterPageInstance.clickOnChooseFilUploadButtonAndUploadImage(), "file upload failed, please check manually");	
 		Assert.assertTrue(LocatorsFactoryInstance.countryDropdownIsPresent(driver).isDisplayed(), "Country dropdown menu is not present in the current page, Please check manually");
 	}	
 
