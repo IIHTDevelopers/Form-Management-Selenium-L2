@@ -200,12 +200,12 @@ public class FormManagement_Pages extends StartupPage
 
 	/**@Test10
 	 * about this method clickOnChooseFilUploadButtonAndUploadImage() 
-	 * @param : String
-	 * @description : click on choose file button and upload the image
+	 * @param : none
+	 * @description : click on choose file button and upload the image, specify the path of the file manually in your code
 	 * @return : boolean
 	 * @author : Yaksha
 	 */
-	public boolean clickOnChooseFilUploadButtonAndUploadImage(String pathOfTheFile) throws Exception {
+	public boolean clickOnChooseFilUploadButtonAndUploadImage() throws Exception {
 		return false;
 	}
 
