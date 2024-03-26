@@ -3,6 +3,7 @@ package testdata;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import java.awt.image.BufferedImage;
 
 import pages.StartupPage;
 
@@ -35,7 +36,11 @@ public class LocatorsFactory extends StartupPage {
 	}
 
 
-
+public boolean compareImages(BufferedImage img1, BufferedImage img2) {
+        // Image comparison logic
+        // Example: Compare image dimensions and pixel values
+        return img1.getWidth() == img2.getWidth() && img1.getHeight() == img2.getHeight();
+    }
 
 
 	//Expected data will be fetch from config.json file,path of the json file is:FaceBook_Automation_Dummy/src/main/resources/config.json
