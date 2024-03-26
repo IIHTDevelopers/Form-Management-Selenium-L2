@@ -3,6 +3,12 @@
 package testcases;
 
 import java.util.Map;
+import java.io.File;
+import java.util.Map;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -116,12 +122,20 @@ public class FormManagement_TestCases extends AppTestBase {
 	
 	@Test(priority = 10, groups = {"sanity"}, description="Click on the image upload button and Choose an image file from the file system")
 	public void uploadAImage() throws Exception {
-		RegisterPageInstance = new FormManagement_Pages(driver);
+		RegisterPageInstance = new FormManagement_L1_Pages(driver);
 		String expectedDataFilePath = testDataFilePath+"expected_data.json";
 		Map<String, String> expectedData = new FileOperations().readJson(expectedDataFilePath, "PathOfTheImage");
+		File screenshotBefore = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		Assert.assertTrue(RegisterPageInstance.clickOnChooseFilUploadButtonAndUploadImage(System.getProperty("user.dir") + "\\testImage\\uploadImage.png"), "file upload failed, please check manually");	
-		Assert.assertTrue(LocatorsFactoryInstance.countryDropdownIsPresent(driver).isDisplayed(), "Country dropdown menu is not present in the current page, Please check manually");
-	}	
+		File screenshotAfter = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				BufferedImage imgBefore = ImageIO.read(screenshotBefore);
+				BufferedImage imgAfter = ImageIO.read(screenshotAfter);
+				boolean isUploaded = false;
+				if (LocatorsFactoryInstance.compareImages(imgBefore, imgAfter)) {
+					isUploaded = true;
+				} 
+		Assert.assertTrue(isUploaded, "file upload failed, please check manually");
+	}		
 
 	@Test(priority = 11, groups = {"sanity"}, description="click On Register And Fill FirstNameTextbox lastNameTextbox addressInputAreabox emailAddress Textbox And submitButton")
 	public void fillTheDetailsAndClickOnTheSubmitButton() throws Exception {
