@@ -131,7 +131,7 @@ public class FormManagement_TestCases extends AppTestBase {
 				BufferedImage imgBefore = ImageIO.read(screenshotBefore);
 				BufferedImage imgAfter = ImageIO.read(screenshotAfter);
 				boolean isUploaded = false;
-				if (LocatorsFactoryInstance.compareImages(imgBefore, imgAfter)) {
+				if (!LocatorsFactoryInstance.compareImages(imgBefore, imgAfter)) {
 					isUploaded = true;
 				} 
 		Assert.assertTrue(isUploaded, "file upload failed, please check manually");
