@@ -122,7 +122,7 @@ public class FormManagement_TestCases extends AppTestBase {
 	
 	@Test(priority = 10, groups = {"sanity"}, description="Click on the image upload button and Choose an image file from the file system")
 	public void uploadAImage() throws Exception {
-		RegisterPageInstance = new FormManagement_L1_Pages(driver);
+		RegisterPageInstance = new FormManagement_Pages(driver);
 		String expectedDataFilePath = testDataFilePath+"expected_data.json";
 		Map<String, String> expectedData = new FileOperations().readJson(expectedDataFilePath, "PathOfTheImage");
 		File screenshotBefore = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
