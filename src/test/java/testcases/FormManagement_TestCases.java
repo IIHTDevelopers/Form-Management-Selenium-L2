@@ -120,24 +120,7 @@ public class FormManagement_TestCases extends AppTestBase {
 		Assert.assertTrue(LocatorsFactoryInstance.selectYearDropdown(driver).isDisplayed(), "Country dropdown menu is not present in the current page, Please check manually");
 	}
 	
-	@Test(priority = 10, groups = {"sanity"}, description="Click on the image upload button and Choose an image file from the file system")
-	public void uploadAImage() throws Exception {
-		RegisterPageInstance = new FormManagement_Pages(driver);
-		String expectedDataFilePath = testDataFilePath+"expected_data.json";
-		Map<String, String> expectedData = new FileOperations().readJson(expectedDataFilePath, "PathOfTheImage");
-		File screenshotBefore = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		Assert.assertTrue(RegisterPageInstance.clickOnChooseFilUploadButtonAndUploadImage(System.getProperty("user.dir") + "\\testImage\\uploadImage.png"), "file upload failed, please check manually");	
-		File screenshotAfter = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-				BufferedImage imgBefore = ImageIO.read(screenshotBefore);
-				BufferedImage imgAfter = ImageIO.read(screenshotAfter);
-				boolean isUploaded = false;
-				if (!LocatorsFactoryInstance.compareImages(imgBefore, imgAfter)) {
-					isUploaded = true;
-				} 
-		Assert.assertTrue(isUploaded, "file upload failed, please check manually");
-	}		
-
-	@Test(priority = 11, groups = {"sanity"}, description="click On Register And Fill FirstNameTextbox lastNameTextbox addressInputAreabox emailAddress Textbox And submitButton")
+	@Test(priority = 10, groups = {"sanity"}, description="click On Register And Fill FirstNameTextbox lastNameTextbox addressInputAreabox emailAddress Textbox And submitButton")
 	public void fillTheDetailsAndClickOnTheSubmitButton() throws Exception {
 		RegisterPageInstance = new FormManagement_Pages(driver);
 		String expectedDataFilePath = testDataFilePath+"expected_data.json";
@@ -145,6 +128,16 @@ public class FormManagement_TestCases extends AppTestBase {
 		Assert.assertTrue(RegisterPageInstance.filltheDetailsAndClickOnTheSubmitButton(expectedData), "Register button is not present, please check manually");
 		Assert.assertTrue(LocatorsFactoryInstance.countryDropdownIsPresent(driver).isDisplayed(), "Country dropdown menu is not present in the current page, Please check manually");
 	}	
+
+
+	@Test(priority = 11, groups = {"sanity"}, description="click on Interaction Navigation Menu bar, then click on selectable option, then click on Serialize tab, then click on Sakinalium - Cross Browser Testing option. after click on Sakinalium - Cross Browser Testing some text value will display . Fetch that text value")
+	public void afterClickOnSakinaliumCrossBrowserTestingDisplayThatText() throws Exception {
+		RegisterPageInstance = new FormManagement_Pages(driver);
+		Map<String, String> expectedData = new FileOperations().readJson(expectedDataFilePath, "Successfull_message");
+		Assert.assertEquals(RegisterPageInstance.afterClickOnSakinaliumCrossBrowserTestingDisplayTheText(),expectedData.get("Message_After_ClickingSakinaliumCrossBrowserTestingOption") ,"Click On Sakinalium Cross Browser Testing option is not present, please check manually");
+		Assert.assertTrue(LocatorsFactoryInstance.messageAfterClickingSakinaliumCrossBrowserTestingOptionIsPresent(driver).isDisplayed(), "Message After Clicking on Sakinalium Cross Browser Testing Option Is not present in the current page, Please check manually");
+	}
+	
 
 	@Test(priority = 12, groups = {"sanity"}, description="Go to home, then click on Sign-In button and validate the title of the Sign-In page")
 	public void goTohomeThenClickOnSignInButtOnValidateTitleOfTheSignInPage() throws Exception {

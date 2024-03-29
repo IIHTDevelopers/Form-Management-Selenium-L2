@@ -46,8 +46,8 @@
   	"DragAndDropPage_Title":{
 		"pageTitle":"Drag and Drop"
 	},
-	"PathOfTheImage":{
-		"imagePath":"\\testImage\\uploadImage.png"
-		
+	"Successfull_message":{
+		"Message_After_ClickingSakinaliumCrossBrowserTestingOption":"You've selected: Cross Browser Testing"
 	}
+	
 }
